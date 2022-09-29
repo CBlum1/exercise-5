@@ -1,0 +1,186 @@
+#8.3 Tshirt
+def make_shirt(size, message):
+    """Explain the shirt that is being made"""
+    print("\nI'm going to make a "+size+"t-shirt.")
+    print('It will say,"'+message+'"')
+make_shirt("small","Welcome to anderson")
+make_shirt(message="Cyber Major", size='Large')
+#8.4
+def make_shirt(size='large', message="Anderson University"):
+    """Explain the shirt thats getting made"""
+    print("\n I'm going to make a "+ size +"t-shirt.")
+    print('It will say,"'+ message +'"')
+make_shirt()
+make_shirt(size='Medium')
+make_shirt('small','Wheres Waldo?')
+
+#8.5
+def describe_city(city, country='chile'):
+    """Describe a city"""
+    msg= city.title()+" is in "+ country.title()+"."
+    print(msg)
+describe_city('Annaba')
+describe_city('Berlin','Germany')
+describe_city('Oran')
+
+#8.6 City names
+def city_country(city,country):
+    """Return a string Such as 'Santiago, Chile' """
+    return(city.title() +", "+ country.title())
+city=city_country("santiago","chile")
+print(city)
+city=city_country("Berlin","Germany")
+print(city)
+city=city_country('Sibiu','Romania')
+
+#8.7 Album
+def make_album(artist, title,tracks=0):
+    """Build a dictionary with information about an ablbum"""
+    album_dictionary={
+        'artist':artist.title(),
+        'title':title.title(),
+    }
+    if tracks:
+        album_dictionary['tracks']=tracks
+    return album_dictionary
+alb=make_album('Taylor Swift','Red')
+print(alb)
+alb=make_album('Pink Floyd','The dar side of the Moon')
+print(alb)
+alb=make_album('Billy Joel','Storm Front',tracks = 10)
+print(alb)
+
+#8.8 User Albums
+# I watched this youtube video https://www.youtube.com/watch?v=7m5bNMuEYtc to better understand the prompt commands
+def make_album(artist,title, tracks=0):
+    """Build a dictionary with a quit option"""
+    album_dictionary={
+        'artist': artist.title(),
+        'Title':title.title(),
+    }
+    if tracks:
+        album_dictionary['tracks']=tracks
+    return album_dictionary
+title_prompt= ("\nWhat album are you thinking of?")
+artist_prompt= ("Who is the artist?")
+print("Enter 'quit' at to stop.")
+while True:
+        title= input(title_prompt)
+        if title =='quit':
+            break
+        artist = input(artist_prompt)
+        if artist =='quit':
+            break
+            alb = make_album(artist,title)
+print(alb)
+print("\n Thanks for your awnsers!")
+
+#8.9 Messages
+def show_messages(messages):
+    '''Print all messages in one list'''
+    for message in messages:
+        print(message)
+messages = ['Hi','How was your day?','What is your favorite color?']
+show_messages(messages)
+
+#8.10 sending messages
+def show_messages(messages):
+    '''Print all messages in a list'''
+    print("Showing all messages:")
+    for message in messages:
+        print(message)
+def send_messages (messages, sent_messages):
+    """Print all messages, then move it to sent"""
+    print("\n Sending all messages:")
+    while messages:
+        current_message=messages.pop()
+        print(current_message)
+        sent_messages.append(current_message)
+messages=['Hi','How was your day','What is your favorite color']
+show_messages(messages)
+sent_messages =[]
+send_messages(messages, sent_messages)
+print("\nFinal lists:")
+print(messages)
+print(sent_messages)
+#8.11  Archived messages
+def show_messages(messages):
+    """Print all messages in the list"""
+    print("All messages:")
+    for message in messages:
+        print(message)
+def send_messages(messages, sent_messages):
+    """Print all messages and move to sent"""
+    print("\n Sending all messages")
+    while messages:
+        current_message=messages.pop()
+        print(current_message)
+        sent_messages.append(current_message)
+messages=["Hi","How was your day","What is your favorite color"]
+show_messages(messages)
+sent_messages=[]
+send_messages(messages[:],sent_messages)
+print("\nFinal lists:")
+print(messages)
+print(sent_messages)
+#8.12  Sandwitches
+def make_sandwich(*items):
+    """Make a sandwich using these ingredients"""
+    print("\n I'll make you a sandwich:")
+    for item in items:
+        print(f".....adding {item} to your sandwich.")
+    print("Your sandwich is ready!")
+make_sandwich('Turkey','Provolone cheese','lettuce','mayo')
+make_sandwich('Ham','Cheddar cheese','tomatos','lettuce')
+make_sandwich('Turkey','Ham','lettuce','Tomatos')
+#8.13 user
+def build_profile(first,last,**user_info):
+    """Build a dictionary contasinin"""
+    user_info['first_name']= first
+    user_info['last_name'] = last
+    return user_info
+user_profile=build_profile('Courtney','Blum',
+                           School='Anderson university',
+                           Major='Cyber Security')
+print(user_profile)
+#8.14 cars
+def make_car(manufacturer, model, **options):
+    '''Make a dictionary for a car'''
+    car_dict = {
+        'manufacturer':manufacturer.title(),
+        'model':model.title(),
+        }
+    for option, value in options.items():
+        car_dict[option]= value
+    return car_dict
+my_elantra = make_car('Elantra','Limited',color= 'grey',tow_package=True)
+print(my_elantra)
+#8.15 Priniting Models
+def print_models(unprinted_designs, completed_models):
+    """
+    print each desgin until there are non left.
+    Then move each design to completed_models after printing
+    """
+    while unprinted_designs:
+        current_design = unprinted_designs.pop()
+        print( "Printing model:" + current_design)
+        completed_models.append(current_design)
+def show_completed_models(completed_models):
+    """show all models printed"""
+    print("\n All modles below have been printed")
+    for completed_model in completed_models:
+        print(completed_model)
+import printing_functions as pf
+unprinted_designs=['Cell phone','Iphone','Samsung']
+completed_models=[]
+pf.print_models(unprinted_designs,completed_model)
+pf.show_completed_models(completed_model)
+#8.16
+import  hello_world as hw
+hw.printing_functions()
+from exercise4 import main
+print(main())
+from exercise4 import main as mns
+print(mns())
+import exercise4 as mn
+print(mn())
